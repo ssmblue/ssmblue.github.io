@@ -2,65 +2,137 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>リージョン杯</title>
+  <title>第4回リージョン杯</title>
   <style>
-    /* 全体の初期設定 */
+    html {
+      scroll-behavior: smooth; /* スムーズスクロール */
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      font-family: sans-serif;
-    }
-
-    /* 背景画像の固定 */
     body {
-      background-image: url('背景.png'); /* 好きな画像に変更OK */
+      background-image: url('背景.png'); /* 好きな画像に変更可 */
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
+      font-family: sans-serif;
+      color: #333;
     }
 
-    /* 文字を表示する部分 */
-    .content {
-      background-color: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+    .toc {
+      background: rgba(255, 255, 255, 0.9);
       width: 80%;
       max-width: 800px;
-      margin: 50px auto;
+      margin: 30px auto 10px;
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .toc li {
+      margin: 5px 0;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      background-color: rgba(255, 255, 255, 0.85);
+      width: 80%;
+      max-width: 800px;
+      margin: 10px auto 50px;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    .back-to-top {
+      display: block;
+      text-align: right;
+      margin-top: 30px;
+    }
+
+    .back-to-top a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #007acc;
+    }
+
+    .back-to-top a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <h2>目次</h2>
+    <ul>
+      <li><a href="#about">大会について</a></li>
+      <li><a href="#howto">参加方法</a></li>
+      <li><a href="#schedule">スケジュール</a></li>
+      <li><a href="#rule">ルール</a></li>
+    </ul>
+  </div>
+
+  <!-- 本文 -->
   <div class="content">
-    <h1>第4回リージョン杯　9/〇(土)　開催!!!</h1>
+    <h1 id="about">第4回リージョン杯 9/〇(土) 開催!!!</h1>
     <p>
-      これは背景画像が固定されていて、前面の文字だけがスクロールするデモです。
-    </p>
-    <p>
+      これは背景画像が固定されていて、前面の文字だけがスクロールするデモです。<br>
       ここにたくさんのテキストを書けば、スクロールしても背景はそのままです。
     </p>
+
+    <h2 id="howto">参加方法</h2>
     <p>
-      下にもっとテキストを入れることで、背景固定の効果がよくわかります。
+      参加方法は以下の通りです。Twitterで告知されたURLから事前登録してください。参加は先着順です。
     </p>
+
+    <h2 id="schedule">スケジュール</h2>
     <p>
-      背景画像は好きな画像のURLに変更可能です。Unsplashなどからも使えます。
+      開催日：9月〇日（土）<br>
+      開始時間：21:00〜（予定）<br>
+      配信URLやタイムテーブルは別途告知します。
     </p>
+
+    <h2 id="rule">ルール</h2>
     <p>
-      GitHub Pagesにこの `index.html` をアップすれば、すぐ公開できます！
+      ・カスタムマッチ形式<br>
+      ・使用キャラ自由（スキン制限なし）<br>
+      ・煽り・チート・バグ利用は禁止<br>
+      ・その他主催が不適切と判断した場合、参加を制限します。
     </p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
-    <p>スクロール…</p>
+
+    <div class="back-to-top">
+      <a href="#top">▲ ページ上部へ戻る</a>
+    </div>
   </div>
+
 </body>
 </html>
