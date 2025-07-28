@@ -30,7 +30,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('背景.png'); /* ←ここを好きな画像に変えてOK */
+      background-image: url('背景.png'); /* 画像を変更するならここ */
       background-size: cover;
       background-position: center;
       z-index: -1;
@@ -65,14 +65,33 @@
       text-decoration: underline;
     }
 
-    .section {
-      background-color: rgba(255, 255, 255, 0.85);
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
       width: 90%;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 20px auto;
-      padding: 30px;
+      gap: 20px;
+    }
+
+    .main-content {
+      flex: 1 1 600px;
+      min-width: 300px;
+    }
+
+    .sidebar {
+      flex: 0 0 320px;
+      min-width: 280px;
+    }
+
+    .section, .video-box {
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       line-height: 1.6;
     }
 
@@ -82,6 +101,12 @@
 
     p {
       margin-bottom: 15px;
+    }
+
+    .video-box iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
     }
 
     .back-to-top {
@@ -114,60 +139,75 @@
     </ul>
   </div>
 
-  <!-- セクション：大会について -->
-  <div class="section">
-    <h1 id="about">第4回リージョン杯 9/21(日) 開催!!!</h1>
-    <p>
-      気づけば第4回!!!一部の方から今年もありますか？と聞いていただけてうれしかったです!!!<br>
-    例年と時期は変わってしまいましたがもちろん今年も開催します!!!<br>
-    猛者から初心者まで奮ってご参加ください!!!
-    </p>
-  </div>
+  <!-- メインコンテンツ ＋ アーカイブ動画 -->
+  <div class="main-wrapper">
 
-  <!-- セクション：参加方法 -->
-  <div class="section">
-    <h2 id="howto">参加方法</h2>
-    <p>
-      下記のURLからご応募いただけます!!!<br>
-      チーム名、選手名、キラー担当(複数人可)、リージョン杯への意気込みを記載ください!!!<br>
-      応募期限は8/23(土)までとさせていただきます!!!<br>
-      [ここに応募フォームのURLを貼る]
-    </p>
-  </div>
+    <!-- 左：メイン -->
+    <div class="main-content">
+      <div class="section" id="about">
+        <h1>第4回リージョン杯 9/21(日) 開催!!!</h1>
+        <p>
+          気づけば第4回!!! 一部の方から「今年もありますか？」と聞いていただけてうれしかったです!!!<br>
+          例年と時間は変わってしまいましたが、もちろん今年も開催します!!!<br>
+          猛者から初心者まで奮ってご参加ください!!!
+        </p>
+      </div>
 
-  <!-- セクション：スケジュール -->
-  <div class="section">
-    <h2 id="schedule">スケジュール</h2>
-    <p>
-      開催日：9月21日（日）<br>
-      開始時間：18:00〜（予定）<br>
-      配信URL：https://www.twitch.tv/hassy_shishamo<br>
-      タイムテーブル：参加チームが決定次第アップデートいたします!!!
-    </p>
-  </div>
+      <div class="section" id="howto">
+        <h2>参加方法</h2>
+        <p>
+          下記のURLからご応募いただけます!!!<br>
+          チーム名、選手名、キラー担当（複数人可）、リージョン杯への意気込みを記載ください!!!<br>
+          応募期限は8/23(土)までとさせていただきます!!!<br>
+          【ここに応募フォームのURLを貼る】
+        </p>
+      </div>
 
-  <!-- セクション：ルール -->
-  <div class="section">
-    <h2 id="rule">ルール（勝敗について）</h2>
-    <p>
-      ・吊り回数1回につき1pt加算、初吊りのみ2pt（3回同じ人を吊ったら4pt)<br>
-      ・1人処刑につき3pt加算（殺害、失血死含む、未通電ハッチは処刑扱い）<br>
-      ・全滅できた場合5pt加算<br>
-      ・発電機残り台数1台につき3pt加算<br>
-      ・開始から5分以上経過後のサバイバーの切断は3吊り処刑扱い<br>
-      ・開始から5分以上経過後のキラーの切断はその時点での合計ptで確定<br>
-      ・未通電での脱出は処刑扱い<br>
-      ・キラー合計ptの高いチームの勝利<br>
-      ・キラー合計ptが同じ場合以下の判定方法で勝敗を決定します<br>
-      　①キラーの処刑人数が多いチームの勝利<br>
-      　②キラーの発電機残台数が多いチームの勝利<br>
-      　③キラーのBPが高いチームの勝利<br>
-      　④サバイバーのBP合計が高いチームの勝利<br>
-      ・ルール違反が発覚した場合はその時点で失格とします
-    </p>
+      <div class="section" id="schedule">
+        <h2>スケジュール</h2>
+        <p>
+          開催日：9月21日（日）<br>
+          開始時間：18:00〜（予定）<br>
+          配信URL：https://www.twitch.tv/hassy_shishamo<br>
+          タイムテーブル：参加チームが決定次第アップデートいたします!!!
+        </p>
+      </div>
 
-    <div class="back-to-top">
-      <a href="#top">▲ ページ上部へ戻る</a>
+      <div class="section" id="rule">
+        <h2>ルール（勝敗について）</h2>
+        <p>
+          ・吊り回数1回につき1pt加算、初吊りのみ2pt（3回同じ人を吊ったら4pt)<br>
+          ・1人処刑につき3pt加算（殺害、失血死含む、未通電ハッチは処刑扱い）<br>
+          ・全滅できた場合5pt加算<br>
+          ・発電機残り台数1台につき3pt加算<br>
+          ・開始から5分以上経過後のサバイバーの切断は3吊り処刑扱い<br>
+          ・開始から5分以上経過後のキラーの切断はその時点での合計ptで確定<br>
+          ・未通電での脱出は処刑扱い<br>
+          ・キラー合計ptの高いチームの勝利<br>
+          ・同ptの場合の判定：①処刑数→②残発電機→③キラーBP→④サバBP合計<br>
+          ・ルール違反が発覚した場合はその時点で失格とします
+        </p>
+
+        <div class="back-to-top">
+          <a href="#top">▲ ページ上部へ戻る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：アーカイブ動画 -->
+    <div class="sidebar">
+      <div class="video-box">
+        <h2>第1回 アーカイブ</h2>
+        <iframe src="https://www.youtube.com/embed/NeObCg-tW2Y"></iframe>
+      </div>
+      <div class="video-box">
+        <h2>第2回 アーカイブ</h2>
+        <iframe src="https://www.youtube.com/embed/hvTEyH7pO8A"></iframe>
+      </div>
+      <div class="video-box">
+        <h2>第3回 アーカイブ</h2>
+        <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
+      </div>
     </div>
   </div>
 
