@@ -30,39 +30,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('背景.png'); /* 画像を変更するならここ */
+      background-image: url('背景.png');
       background-size: cover;
       background-position: center;
       z-index: -1;
-    }
-
-    .toc {
-      background: rgba(255, 255, 255, 0.9);
-      width: 90%;
-      max-width: 800px;
-      margin: 30px auto 10px;
-      padding: 15px 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-
-    .toc ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .toc li {
-      margin: 5px 0;
-    }
-
-    .toc a {
-      text-decoration: none;
-      color: #007acc;
-      font-weight: bold;
-    }
-
-    .toc a:hover {
-      text-decoration: underline;
     }
 
     .main-wrapper {
@@ -84,6 +55,55 @@
     .sidebar {
       flex: 0 0 320px;
       min-width: 280px;
+    }
+
+    .toc {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .toc h2 {
+      margin-bottom: 10px;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .toc li {
+      margin: 8px 0;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .toc a.active {
+      color: #e91e63;
+    }
+
+    .toc a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: #e91e63;
+      animation: underline 0.4s ease;
+    }
+
+    @keyframes underline {
+      0% { width: 0; }
+      100% { width: 100%; }
     }
 
     .section, .video-box {
@@ -128,22 +148,21 @@
 </head>
 <body>
 
-  <!-- 目次 -->
-  <div class="toc">
-    <h2>目次</h2>
-    <ul>
-      <li><a href="#about">大会について</a></li>
-      <li><a href="#howto">参加方法</a></li>
-      <li><a href="#schedule">スケジュール</a></li>
-      <li><a href="#rule">ルール（勝敗について）</a></li>
-    </ul>
-  </div>
-
-  <!-- メインコンテンツ ＋ アーカイブ動画 -->
   <div class="main-wrapper">
 
-    <!-- 左：メイン -->
+    <!-- 左：目次 + 本文 -->
     <div class="main-content">
+
+      <div class="toc">
+        <h2>目次</h2>
+        <ul>
+          <li><a href="#about">大会について</a></li>
+          <li><a href="#howto">参加方法</a></li>
+          <li><a href="#schedule">スケジュール</a></li>
+          <li><a href="#rule">ルール（勝敗について）</a></li>
+        </ul>
+      </div>
+
       <div class="section" id="about">
         <h1>第4回リージョン杯 9/21(日) 開催!!!</h1>
         <p>
@@ -183,18 +202,17 @@
           ・開始から5分以上経過後のサバイバーの切断は3吊り処刑扱い<br>
           ・開始から5分以上経過後のキラーの切断はその時点での合計ptで確定<br>
           ・未通電での脱出は処刑扱い<br>
-          ・キラー合計ptの高いチームの勝利<br>
           ・同ptの場合の判定：①処刑数→②残発電機→③キラーBP→④サバBP合計<br>
           ・ルール違反が発覚した場合はその時点で失格とします
         </p>
-
         <div class="back-to-top">
           <a href="#top">▲ ページ上部へ戻る</a>
         </div>
       </div>
+
     </div>
 
-    <!-- 右：アーカイブ動画 -->
+    <!-- 右：アーカイブ -->
     <div class="sidebar">
       <div class="video-box">
         <h2>第1回 アーカイブ</h2>
@@ -209,7 +227,35 @@
         <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
       </div>
     </div>
+
   </div>
+
+  <!-- スクロール位置によって目次リンクをハイライトする -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("div.section[id]");
+      const navLinks = document.querySelectorAll(".toc a");
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const id = entry.target.getAttribute("id");
+            const link = document.querySelector(`.toc a[href="#${id}"]`);
+            if (entry.isIntersecting) {
+              navLinks.forEach(l => l.classList.remove("active"));
+              if (link) link.classList.add("active");
+            }
+          });
+        },
+        {
+          rootMargin: "-50% 0px -40% 0px",
+          threshold: 0
+        }
+      );
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 
 </body>
 </html>
