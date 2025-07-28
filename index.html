@@ -86,26 +86,6 @@
       transition: color 0.3s ease;
     }
 
-    .toc a.active {
-      color: #e91e63;
-    }
-
-    .toc a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background-color: #e91e63;
-      animation: underline 0.4s ease;
-    }
-
-    @keyframes underline {
-      0% { width: 0; }
-      100% { width: 100%; }
-    }
-
     .section, .video-box {
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 12px;
@@ -150,9 +130,7 @@
 
   <div class="main-wrapper">
 
-    <!-- 左：目次 + 本文 -->
     <div class="main-content">
-
       <div class="toc">
         <h2>目次</h2>
         <ul>
@@ -178,7 +156,7 @@
           下記のURLからご応募いただけます!!!<br>
           チーム名、選手名、キラー担当（複数人可）、リージョン杯への意気込みを記載ください!!!<br>
           応募期限は8/23(土)までとさせていただきます!!!<br>
-          【https://forms.gle/PrDFYpmWFXd87Sc56】
+          【ここに応募フォームのURLを貼る】
         </p>
       </div>
 
@@ -209,53 +187,23 @@
           <a href="#top">▲ ページ上部へ戻る</a>
         </div>
       </div>
-
     </div>
 
-    <!-- 右：アーカイブ -->
     <div class="sidebar">
       <div class="video-box">
-        <h2>第1回 アーカイブ</h2>
+        <h2>第1回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/NeObCg-tW2Y"></iframe>
       </div>
       <div class="video-box">
-        <h2>第2回 アーカイブ</h2>
+        <h2>第2回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/hvTEyH7pO8A"></iframe>
       </div>
       <div class="video-box">
-        <h2>第3回 アーカイブ</h2>
+        <h2>第3回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
       </div>
     </div>
-
   </div>
-
-  <!-- スクロール位置によって目次リンクをハイライトする -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll("div.section[id]");
-      const navLinks = document.querySelectorAll(".toc a");
-
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            const id = entry.target.getAttribute("id");
-            const link = document.querySelector(`.toc a[href="#${id}"]`);
-            if (entry.isIntersecting) {
-              navLinks.forEach(l => l.classList.remove("active"));
-              if (link) link.classList.add("active");
-            }
-          });
-        },
-        {
-          rootMargin: "-50% 0px -40% 0px",
-          threshold: 0
-        }
-      );
-
-      sections.forEach(section => observer.observe(section));
-    });
-  </script>
 
 </body>
 </html>
