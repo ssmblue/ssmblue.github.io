@@ -119,6 +119,35 @@
       margin-top: 15px;
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .tournament-img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(3px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .modal:target {
+      display: flex;
     }
 
     .back-to-top {
@@ -139,6 +168,11 @@
   </style>
 </head>
 <body>
+
+  <!-- モーダル -->
+  <div id="modal" class="modal" onclick="this.style.display='none'">
+    <img src="トーナメント表.png" alt="トーナメント表拡大">
+  </div>
 
   <div class="main-wrapper">
 
@@ -170,9 +204,8 @@
         <h2>参加方法</h2>
         <p>
           下記のURLからご応募いただけます!!!<br>
-          必要事項を記載の上お申し込みください!!!<br>
-          応募期限は8/23(土)までとさせていただきます!!!<br>
-          <a href="https://forms.gle/AZr3BSupjJj9B2cS6" target="_blank">応募フォームはこちら</a>
+          <a href="https://forms.gle/AZr3BSupjJj9B2cS6" target="_blank">応募フォームはこちら</a><br>
+          応募期限は8/23(土)までとさせていただきます!!!
         </p>
       </div>
 
@@ -184,7 +217,7 @@
           配信URL：<a href="https://www.twitch.tv/hassy_shishamo" target="_blank">https://www.twitch.tv/hassy_shishamo</a><br>
           タイムテーブル：参加チームが決定次第アップデートいたします!!!
         </p>
-        <img src="トーナメント表.png" alt="トーナメント表" class="tournament-img">
+        <a href="#modal"><img src="トーナメント表.png" alt="トーナメント表" class="tournament-img"></a>
       </div>
 
       <div class="section" id="rule">
@@ -237,7 +270,6 @@
         <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
       </div>
     </div>
-
   </div>
 
 </body>
