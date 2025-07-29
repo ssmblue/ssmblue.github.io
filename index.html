@@ -82,8 +82,6 @@
       text-decoration: none;
       color: #007acc;
       font-weight: bold;
-      position: relative;
-      transition: color 0.3s ease;
     }
 
     .section, .video-box {
@@ -116,6 +114,13 @@
       text-overflow: ellipsis;
     }
 
+    .tournament-img {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
     .back-to-top {
       display: block;
       text-align: right;
@@ -131,13 +136,6 @@
     .back-to-top a:hover {
       text-decoration: underline;
     }
-
-    .tournament-image {
-      max-width: 100%;
-      margin-top: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    }
   </style>
 </head>
 <body>
@@ -152,6 +150,8 @@
           <li><a href="#howto">参加方法</a></li>
           <li><a href="#schedule">スケジュール</a></li>
           <li><a href="#rule">ルール（勝敗について）</a></li>
+          <li><a href="#killer-rule">キラールール</a></li>
+          <li><a href="#survivor-rule">サバイバールール</a></li>
         </ul>
       </div>
 
@@ -184,7 +184,7 @@
           配信URL：<a href="https://www.twitch.tv/hassy_shishamo" target="_blank">https://www.twitch.tv/hassy_shishamo</a><br>
           タイムテーブル：参加チームが決定次第アップデートいたします!!!
         </p>
-        <img class="tournament-image" src="https://github.com/ssmblue/ssmblue.github.io/blob/main/%E3%83%88%E3%83%BC%E3%83%8A%E3%83%A1%E3%83%B3%E3%83%88%E8%A1%A8.png?raw=true" alt="トーナメント表">
+        <img src="トーナメント表.png" alt="トーナメント表" class="tournament-img">
       </div>
 
       <div class="section" id="rule">
@@ -200,9 +200,26 @@
           ・同ptの場合の判定：①発電機残台数→②処刑数→③キラーBP→④サバBP合計<br>
           ・ルール違反が発覚した場合はその時点で失格とします
         </p>
-        <div class="back-to-top">
-          <a href="#top">▲ ページ上部へ戻る</a>
-        </div>
+      </div>
+
+      <div class="section" id="killer-rule">
+        <h2>キラールール</h2>
+        <p>
+          ・アドオンは紫以下のみ使用可能（赤禁止）<br>
+          ・同じキラーの連続使用は不可（連続で2戦まで）<br>
+          ・煽り行為・悪質なキャンプは減点対象となる場合があります<br>
+          ・視点・音声は運営側配信に準拠（過度なBGMは禁止）
+        </p>
+      </div>
+
+      <div class="section" id="survivor-rule">
+        <h2>サバイバールール</h2>
+        <p>
+          ・同一パーク構成は禁止（例：全員がセルフケア）<br>
+          ・過度な煽りや屈伸連打はマナー違反とし、注意対象となります<br>
+          ・マップのバグ利用は禁止<br>
+          ・試合放棄と判断される行動があった場合は減点または失格となります
+        </p>
       </div>
     </div>
 
@@ -220,6 +237,7 @@
         <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
       </div>
     </div>
+
   </div>
 
 </body>
