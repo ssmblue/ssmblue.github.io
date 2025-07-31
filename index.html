@@ -146,7 +146,7 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
-    .modal:target {
+    .modal.open {
       display: flex;
     }
 
@@ -169,8 +169,8 @@
 </head>
 <body>
 
-  <!-- モーダル -->
-  <div id="modal" class="modal" onclick="this.style.display='none'">
+  <!-- モーダル画像 -->
+  <div class="modal" id="modal">
     <img src="トーナメント表.png" alt="トーナメント表拡大">
   </div>
 
@@ -217,7 +217,7 @@
           配信URL：<a href="https://www.twitch.tv/hassy_shishamo" target="_blank">https://www.twitch.tv/hassy_shishamo</a><br>
           タイムテーブル：参加チームが決定次第アップデートいたします!!!
         </p>
-        <a href="#modal"><img src="トーナメント表.png" alt="トーナメント表" class="tournament-img"></a>
+        <img src="トーナメント表.png" alt="トーナメント表" class="tournament-img" id="openModal">
       </div>
 
       <div class="section" id="rule">
@@ -239,43 +239,53 @@
         <h2>キラールール</h2>
         <p>
           ・使用可能キラーはリージョンのみ<br>
-          ・マップはキラー直指定、リミット制(一度使用したマップは次の試合以降使用することはできません)<br>
-          ・アドオン制限なし<br>
-          ・パーク制限なし<br>
-          ・オファリング使用不可<br>
-          ※アップデートによる仕様変更、バグ等の関係でルールが変更になる可能性がありますのでご了承ください。
+          ・マップはキラー直指定、リミット制(一度使用したマップは次の試合以降使用不可)<br>
+          ・アドオン制限なし、パーク制限なし、オファリング使用不可<br>
+          ※アップデートやバグによりルールが変更になる可能性があります。
         </p>
       </div>
 
       <div class="section" id="survivor-rule">
         <h2>サバイバールール</h2>
         <p>
-          ・キャラ被り不可<br>
-          ・パーク被り不可<br>
-          ・アイテム持ち込みなし、試合中に入手したアイテムの使用可<br>
+          ・キャラ被り・パーク被り不可<br>
+          ・アイテム持ち込みなし（試合中に拾ったものは使用可）<br>
           ・オファリング使用不可<br>
-          ・呪いのトーテムの破壊、トーテムの恵みは発電機1台修理完了するまではできない<br>
-          ・「安心感」、「有能の証明」、「ベビーシッター」、「加速の策略」、「重責の引き受け」は使用禁止<br>
-          ※アップデートによる仕様変更、バグ等の関係でルールが変更になる可能性がありますのでご了承ください。
+          ・トーテム破壊・恵みは発電機1台修理完了後から可<br>
+          ・使用禁止パーク：「安心感」「有能の証明」「ベビーシッター」「加速の策略」「重責の引き受け」<br>
+          ※アップデートやバグによりルールが変更になる可能性があります。
         </p>
       </div>
     </div>
 
     <div class="sidebar">
       <div class="video-box">
-        <h2 class="video-title">第1回リージョン杯 アーカイブ</h2>
+        <h2>第1回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/NeObCg-tW2Y"></iframe>
       </div>
       <div class="video-box">
-        <h2 class="video-title">第2回リージョン杯 アーカイブ</h2>
+        <h2>第2回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/hvTEyH7pO8A"></iframe>
       </div>
       <div class="video-box">
-        <h2 class="video-title">第3回リージョン杯 アーカイブ</h2>
+        <h2>第3回リージョン杯 アーカイブ</h2>
         <iframe src="https://www.youtube.com/embed/j0pqqNXD_CA"></iframe>
       </div>
     </div>
   </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const trigger = document.getElementById('openModal');
+
+    trigger.addEventListener('click', () => {
+      modal.classList.add('open');
+    });
+
+    modal.addEventListener('click', () => {
+      modal.classList.remove('open');
+    });
+  </script>
 
 </body>
 </html>
