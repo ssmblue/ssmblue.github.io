@@ -153,26 +153,36 @@
     .back-to-top {
       display: block;
       text-align: right;
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     .back-to-top a {
       font-size: 14px;
       text-decoration: none;
-      color: #007acc;
+      color: #fff;
+      background-color: #007acc;
+      padding: 8px 16px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
 
     .back-to-top a:hover {
-      text-decoration: underline;
+      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
+
+  <!-- モーダル画像 -->
   <div class="modal" id="modal">
     <img src="トーナメント表.jpg" alt="トーナメント表拡大">
   </div>
 
   <div class="main-wrapper">
+
     <div class="main-content">
       <div class="toc">
         <h2>目次</h2>
@@ -250,5 +260,6 @@
       modal.classList.remove('open');
     });
   </script>
+
 </body>
 </html>
